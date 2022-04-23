@@ -71,7 +71,7 @@ public class GUI implements ActionListener
 //		Image image = iia.getImage();
 //		this.setImage(image);
 
-		ImageIcon picRed = new ImageIcon(this.getClass().getResource("red.png"));
+		ImageIcon picRed = new ImageIcon(this.getClass().getResource("IconFact/red.png"));
 	    image.setIcon(picRed);
 	    image.setBounds(300, 111, 100, 100);
 	    f.add(image);
@@ -111,7 +111,7 @@ public class GUI implements ActionListener
 	public void guiCreator() 
 	{
 		try {
-		    f.setIconImage(ImageIO.read(getClass().getResourceAsStream("icon.png")));
+		    f.setIconImage(ImageIO.read(getClass().getResourceAsStream("IconFact/icon.png")));
 		} catch (IOException e) {
 		    e.printStackTrace();
 		}

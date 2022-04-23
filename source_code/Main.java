@@ -2,14 +2,14 @@ import java.io.File;
 import java.io.IOException;
 
 public class Main {
-	private File lastTimeData;
-	private File playerData;
-	private LastTimePlayed lastTimePlayed;
-	private Player player;
-	private GUI gui;
+	private static File lastTimeData;
+	private static  File playerData;
+	private static LastTimePlayed lastTimePlayed;
+	private static Player player;
+	private static GUI gui;
 
 
-	private void readLastData(){
+	private static void readLastData(){
 		try{ lastTimeData = new File("lastTimeData.txt");
 			if (lastTimeData.createNewFile()) {}
 		}
@@ -18,7 +18,7 @@ public class Main {
 			e.printStackTrace();
 		}
 	}
-	private void readPlayerData(){
+	private static void readPlayerData(){
 		try{ playerData = new File("playerData.txt");
 			if (playerData.createNewFile()) {}
 		}
@@ -30,7 +30,7 @@ public class Main {
 
 
 
-	private void setupGUI() {
+	private static void setupGUI() {
 		gui = new GUI();
 		gui.buttonCreator();
 		gui.displayImage();
@@ -39,7 +39,7 @@ public class Main {
 		gui.buttonListenerCreator();
 	}
 
-	private void setupPlayer() {
+	private static void setupPlayer() {
 		player = new Player(0, 10, 1, 1);
 		player.readPlayerData();
 		if (player.getScore() < 70) {
@@ -47,7 +47,7 @@ public class Main {
 		}
 	}
 
-	private void setupLastTimePlayer() {
+	private static void setupLastTimePlayer() {
 		lastTimePlayed = new LastTimePlayed();
 		lastTimePlayed.checkFirstTime();
 		lastTimePlayed.getSystemTime();
@@ -55,7 +55,7 @@ public class Main {
 		lastTimePlayed.timeDiff();
 	}
 
-	public void main(String[] args) {
+	public static void main(String[] args) {
 
 		readLastData();
 		readPlayerData();

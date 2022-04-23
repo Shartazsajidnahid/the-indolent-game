@@ -6,7 +6,8 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 
 	public static void main(String[] args) 
-	{	
+	{
+		//here yre
 		try{File lastTimeData = new File("lastTimeData.txt"); if (lastTimeData.createNewFile()) {} }catch (IOException e){System.out.println("An error occurred.");e.printStackTrace();}
 		
 		try{File playerData = new File("playerData.txt"); if (playerData.createNewFile()) {} } catch (IOException e){System.out.println("An error occurred.");e.printStackTrace();}

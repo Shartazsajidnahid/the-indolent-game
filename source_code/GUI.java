@@ -66,11 +66,6 @@ public class GUI implements ActionListener
 	
 	public void displayImage()
 	{
-//		URL loc = this.getClass().getResource("\\res\\cop" + PID + "_l.png");
-//		ImageIcon iia = new ImageIcon(loc);
-//		Image image = iia.getImage();
-//		this.setImage(image);
-
 		ImageIcon picRed = new ImageIcon(this.getClass().getResource("IconFact/red.png"));
 	    image.setIcon(picRed);
 	    image.setBounds(300, 111, 100, 100);
@@ -122,17 +117,11 @@ public class GUI implements ActionListener
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	public void changeImage(int picNum)
+	public void changeImage(Icon newicon)
 	{
-		IconFactory iconFactory = new IconFactory();
-		Icons icons = iconFactory.getIcons(picNum);
-
-		Icon newicon = icons.createIcon();
-
 		image.setIcon(newicon);
 	}
-	
-	
+
 	public void changeText(double num1, double num2, double num3, double num4, double num5)
 	{
 		l1.setText("Score: " + String.format("%.03f", num1));

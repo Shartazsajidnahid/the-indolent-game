@@ -2,18 +2,20 @@ import javax.swing.*;
 
 public class IconFactory {
 
-    public Icons getIcons(int type){
-        if(type ==1) return  new redIcon();
-        else if (type == 2) return  new orangeIcon();
-        else if (type == 3) return  new yellowIcon();
-        else if (type == 4) return  new greenIcon();
-        else if (type == 5) return  new blueIcon();
-        else if (type == 6) return  new indigoIcon();
-        else if (type == 7) return  new violetIcon();
-
-        return new whiteIcon();
+    public Icons getIcons(double score){
+        if (score > 0 && score <= 10) return  new redIcon();
+        else if (score >= 10 && score <= 20) return  new orangeIcon();
+        else if (score > 20 && score <= 30) return  new yellowIcon();
+        else if (score > 30 && score <= 40) return  new greenIcon();
+        else if (score > 40 && score <= 50) return  new blueIcon();
+        else if (score > 50 && score <= 60) return  new indigoIcon();
+        else if (score > 60 && score <= 70) return  new violetIcon();
+        return new violetIcon();
     }
 
+    public interface Icons {
+        public Icon createIcon();
+    }
 
     public class redIcon implements Icons {
 
@@ -23,6 +25,7 @@ public class IconFactory {
             return redicon;
         }
     }
+
     public class orangeIcon implements Icons{
 
         @Override

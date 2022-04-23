@@ -44,7 +44,6 @@ public class Player
 		try
 		{
 			File playerData = new File("playerData.txt");
-
 			Scanner reader = new Scanner(playerData);
 			BufferedReader br = new BufferedReader(new FileReader("playerData.txt"));
 			try
@@ -85,52 +84,42 @@ public class Player
 	// {
 	// 	System.out.println("Score: " + score + " Rate: " + rate + " Time interval: " + timeInterval + " Amount per time interval: " + amountPerTimeInterval + " Amount per click: " + amountPerClick);
 	// }
+	private boolean checkInCond(double lvl){
+		if(lvl > -1 && lvl < 3) return true;
+		else return false;
+	}
+	private boolean checkUpCond(double lvl){
+		if( (score>=1000) && checkInCond(lvl)) return true;
+		else return false;
+	}
 
 	public void lvl_TI_up()
 	{
-		if (score >= 1000)
-		{
-			if (lvl_TI > -1 && lvl_TI < 3)
-			{
-				lvl_TI++;
-				timeInterval = timeInterval / 10;
-				score -= 1000;
-			}
-			else lvl_TI = lvl_TI + 0;
+		if(checkUpCond(lvl_TI)){
+			lvl_TI++;
+			timeInterval = timeInterval / 10;
+			score -= 1000;
 		}
-		else lvl_TI = lvl_TI + 0;
 		//System.out.println("Level of time interval: " + lvl_TI);
 	}
 
 	public void lvl_APTI_up()
 	{
-		if (score >= 1000)
-		{
-			if (lvl_APTI > -1 && lvl_APTI < 3)
-			{
-				lvl_APTI++;
-				amountPerTimeInterval = amountPerTimeInterval * 10;
-				score -= 1000;
-			}
-			else lvl_APTI = lvl_APTI + 0;
+		if(checkUpCond(lvl_APTI)){
+			lvl_APTI++;
+			amountPerTimeInterval = amountPerTimeInterval * 10;
+			score -= 1000;
 		}
-		else lvl_APTI = lvl_APTI + 0;
 		//System.out.println("Level of amount per time interval: " + lvl_APTI);
 	}
 
 	public void lvl_APC_up()
 	{
-		if (score >= 1000)
-		{
-			if (lvl_APC > -1 && lvl_APC < 3)
-			{
-				lvl_APC++;
-				amountPerClick = amountPerClick * 10;
-				score -= 1000;
-			}
-			else lvl_APC = lvl_APC + 0;
+		if(checkUpCond(lvl_TI)){
+			lvl_APC++;
+			amountPerClick = amountPerClick * 10;
+			score -= 1000;
 		}
-		else lvl_APC = lvl_APC + 0;
 		//System.out.println("Level of amount per click: " + lvl_APC);
 	}
 	

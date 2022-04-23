@@ -103,33 +103,41 @@ public class LastTimePlayed
 		{
 			LocalDateTime fromDateTime = LocalDateTime.of(year1, month1, day1, hour1, minute1, second1);
 			LocalDateTime toDateTime = LocalDateTime.of(year2, month2, day2, hour2, minute2, second2);
-
 			LocalDateTime tempDateTime = LocalDateTime.from( fromDateTime );
-
-			yearDiff = calcDiff(tempDateTime,toDateTime, ChronoUnit.YEARS);
-			tempDateTime = tempDateTime.plusYears( yearDiff );
-
-			monthDiff = tempDateTime.until( toDateTime, ChronoUnit.MONTHS);
-			tempDateTime = tempDateTime.plusMonths( monthDiff );
-
-			dayDiff = tempDateTime.until( toDateTime, ChronoUnit.DAYS);
-			tempDateTime = tempDateTime.plusDays( dayDiff );
-
-			hourDiff = tempDateTime.until( toDateTime, ChronoUnit.HOURS);
-			tempDateTime = tempDateTime.plusHours( hourDiff );
-
-			minuteDiff = tempDateTime.until( toDateTime, ChronoUnit.MINUTES);
-			tempDateTime = tempDateTime.plusMinutes( minuteDiff );
-
-			secondDiff = tempDateTime.until( toDateTime, ChronoUnit.SECONDS);
-
+			calculateDiffernce(tempDateTime,toDateTime);
+			tempDateTime = calctempDateTime(tempDateTime);
 			//System.out.println(yearDiff + " " + monthDiff + " " + dayDiff + " " + hourDiff + " " + minuteDiff + " " + secondDiff);
 		}
-		else 
-		{
-			//System.out.println("This is the first time. No timeDiff");
-		}
+//		else
+//		{
+//			//System.out.println("This is the first time. No timeDiff");
+//		}
 	}
+
+	private LocalDateTime calctempDateTime(LocalDateTime tempDateTime){
+		tempDateTime = tempDateTime.plusYears( yearDiff );
+
+		tempDateTime = tempDateTime.plusMonths( monthDiff );
+
+		tempDateTime = tempDateTime.plusDays( dayDiff );
+
+		tempDateTime = tempDateTime.plusHours( hourDiff );
+
+		tempDateTime = tempDateTime.plusMinutes( minuteDiff );
+		return tempDateTime;
+	}
+
+	private void calculateDiffernce(LocalDateTime tempDateTime, LocalDateTime toDateTime){
+
+		yearDiff = calcDiff(tempDateTime,toDateTime, ChronoUnit.YEARS);
+		monthDiff = tempDateTime.until( toDateTime, ChronoUnit.MONTHS);
+		dayDiff = tempDateTime.until( toDateTime, ChronoUnit.DAYS);
+		hourDiff = tempDateTime.until( toDateTime, ChronoUnit.HOURS);
+		minuteDiff = tempDateTime.until( toDateTime, ChronoUnit.MINUTES);
+		secondDiff = tempDateTime.until( toDateTime, ChronoUnit.SECONDS);
+	}
+
+
 	private long calcDiff(LocalDateTime fromDateTime, LocalDateTime toDateTime, ChronoUnit chronoUnit){
 		return fromDateTime.until( toDateTime, chronoUnit);
 	}

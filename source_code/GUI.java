@@ -12,7 +12,6 @@ import javax.swing.*;
 public class GUI implements ActionListener
 {
 	private JFrame f;
-
 	private JLabel image;
 	private JLabel l1, l2, l3, l4, l5, l6, l7, l8;
 	private List<ButtonBuilder> buttonBuilders;
@@ -24,20 +23,9 @@ public class GUI implements ActionListener
 		f = new JFrame("The indolent game");
 		this.buttons = new ArrayList<>();
 		this.buttonBuilders = buttonBuilders;
-//
-//		b1 = new JButton();
-//		b2 = new JButton();
-//		b3 = new JButton();
-//		b4 = new JButton();
-//		b5 = new JButton();
-		
+
 		image = new JLabel();
-		
-		b1Clicked = 0;
-		b2Clicked = 0;
-		b3Clicked = 0;
-		b4Clicked = 0;
-		b5Clicked = 0;
+
 	}
 	public void buttonCreator1(){
 		for (ButtonBuilder buttonBuilder : buttonBuilders) {
@@ -90,18 +78,22 @@ public class GUI implements ActionListener
 	
 	public void guiCreator() 
 	{
-		try {
-		    f.setIconImage(ImageIO.read(getClass().getResourceAsStream("Iconfiles/icon.png")));
-		} catch (IOException e) {
-		    e.printStackTrace();
-		}
+		setIcon();
 		f.setSize(750, 422);
 		f.setLayout(null);
 		f.setVisible(true);
 		f.setResizable(false);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	
+
+	private void setIcon() {
+		try {
+		    f.setIconImage(ImageIO.read(getClass().getResourceAsStream("Iconfiles/icon.png")));
+		} catch (IOException e) {
+		    e.printStackTrace();
+		}
+	}
+
 	public void changeImage(Icon newicon)
 	{
 		image.setIcon(newicon);
@@ -123,7 +115,8 @@ public class GUI implements ActionListener
 		}
 	}
 	
-	public int b1Clicked, b2Clicked, b3Clicked, b4Clicked, b5Clicked;
+	private int b1Clicked, b2Clicked, b3Clicked, b4Clicked, b5Clicked;
+
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
@@ -153,5 +146,42 @@ public class GUI implements ActionListener
 			//System.out.println("b5");
 			b5Clicked = 1;
 		}
+	}
+	public int getB2Clicked() {
+	return b2Clicked;
+	}
+
+	public void setB2Clicked(int b2Clicked) {
+		this.b2Clicked = b2Clicked;
+	}
+
+	public int getB3Clicked() {
+		return b3Clicked;
+	}
+
+	public void setB3Clicked(int b3Clicked) {
+		this.b3Clicked = b3Clicked;
+	}
+
+	public int getB4Clicked() {
+		return b4Clicked;
+	}
+
+	public void setB4Clicked(int b4Clicked) {
+		this.b4Clicked = b4Clicked;
+	}
+
+	public int getB5Clicked() {
+		return b5Clicked;
+	}
+
+	public void setB5Clicked(int b5Clicked) {
+		this.b5Clicked = b5Clicked;
+	}
+	public int getB1Clicked(){
+		return b1Clicked;
+	}
+	public void setB1Clicked(int x){
+		this.b1Clicked = x;
 	}
 }

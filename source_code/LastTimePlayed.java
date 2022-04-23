@@ -23,7 +23,6 @@ public class LastTimePlayed
 	{
 		Calendar cal = Calendar.getInstance();
 		//Date date = cal.getTime();
-		
 		year2 = cal.get(Calendar.YEAR);
 		month2 = cal.get(Calendar.MONTH) + 1;
 		day2 = cal.get(Calendar.DAY_OF_MONTH);
@@ -107,7 +106,7 @@ public class LastTimePlayed
 
 			LocalDateTime tempDateTime = LocalDateTime.from( fromDateTime );
 
-			yearDiff = tempDateTime.until( toDateTime, ChronoUnit.YEARS);
+			yearDiff = calcDiff(tempDateTime,toDateTime, ChronoUnit.YEARS);
 			tempDateTime = tempDateTime.plusYears( yearDiff );
 
 			monthDiff = tempDateTime.until( toDateTime, ChronoUnit.MONTHS);
@@ -115,7 +114,6 @@ public class LastTimePlayed
 
 			dayDiff = tempDateTime.until( toDateTime, ChronoUnit.DAYS);
 			tempDateTime = tempDateTime.plusDays( dayDiff );
-
 
 			hourDiff = tempDateTime.until( toDateTime, ChronoUnit.HOURS);
 			tempDateTime = tempDateTime.plusHours( hourDiff );
@@ -131,6 +129,9 @@ public class LastTimePlayed
 		{
 			//System.out.println("This is the first time. No timeDiff");
 		}
+	}
+	private long calcDiff(LocalDateTime fromDateTime, LocalDateTime toDateTime, ChronoUnit chronoUnit){
+		return fromDateTime.until( toDateTime, chronoUnit);
 	}
 
 	public long totalSecondDiff()

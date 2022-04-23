@@ -11,8 +11,7 @@ public class GUI implements ActionListener
 	private JButton b1, b2, b3, b4, b5;
 	private JLabel image;
 	private JLabel l1, l2, l3, l4, l5, l6, l7, l8;
-	
-	
+
 	public GUI()
 	{
 		f = new JFrame("The indolent game");
@@ -67,7 +66,12 @@ public class GUI implements ActionListener
 	
 	public void displayImage()
 	{
-		Icon picRed = new ImageIcon(getClass().getResource("red.png")); 
+//		URL loc = this.getClass().getResource("\\res\\cop" + PID + "_l.png");
+//		ImageIcon iia = new ImageIcon(loc);
+//		Image image = iia.getImage();
+//		this.setImage(image);
+
+		ImageIcon picRed = new ImageIcon(this.getClass().getResource("red.png"));
 	    image.setIcon(picRed);
 	    image.setBounds(300, 111, 100, 100);
 	    f.add(image);
@@ -120,56 +124,12 @@ public class GUI implements ActionListener
 	
 	public void changeImage(int picNum)
 	{
-		switch (picNum) 
-		{
-			case 1:
-			{
-				Icon picRed = new ImageIcon(getClass().getResource("red.png")); 
-			    image.setIcon(picRed);
-			    break;
-			}
-			case 2:
-			{
-				Icon picOrange = new ImageIcon(getClass().getResource("orange.png")); 
-			    image.setIcon(picOrange);
-			    break;
-			}
-			case 3:
-			{
-				Icon picYellow = new ImageIcon(getClass().getResource("yellow.png")); 
-			    image.setIcon(picYellow);
-			    break;
-			}
-			case 4:
-			{
-				Icon picGreen = new ImageIcon(getClass().getResource("green.png")); 
-			    image.setIcon(picGreen);
-			    break;
-			}
-			case 5:
-			{
-				Icon picBlue = new ImageIcon(getClass().getResource("blue.png")); 
-			    image.setIcon(picBlue);
-			    break;
-			}
-			case 6:
-			{
-				Icon picIndigo = new ImageIcon(getClass().getResource("indigo.png")); 
-			    image.setIcon(picIndigo);
-			    break;
-			}
-			case 7:
-			{
-				Icon picViolet = new ImageIcon(getClass().getResource("violet.png")); 
-			    image.setIcon(picViolet);
-			    break;
-			}
-			default:
-			{
-				Icon picWhite = new ImageIcon(getClass().getResource("white.png")); 
-			    image.setIcon(picWhite);
-			}
-		}
+		IconFactory iconFactory = new IconFactory();
+		Icons icons = iconFactory.getIcons(picNum);
+
+		Icon newicon = icons.createIcon();
+
+		image.setIcon(newicon);
 	}
 	
 	
@@ -180,7 +140,6 @@ public class GUI implements ActionListener
 		l3.setText("Time Interval: " + num3);
 		l4.setText("Amount per Time Interval: " + num4);
 		l5.setText("Amount per Click: " + num5);
-		
 	}
 	
 

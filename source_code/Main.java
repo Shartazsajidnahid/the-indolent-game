@@ -6,11 +6,22 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 
 	public static void main(String[] args) 
-	{
-		//here yre
-		try{File lastTimeData = new File("lastTimeData.txt"); if (lastTimeData.createNewFile()) {} }catch (IOException e){System.out.println("An error occurred.");e.printStackTrace();}
+	{	
+		try{File lastTimeData = new File("lastTimeData.txt");
+			if (lastTimeData.createNewFile()) {}
+		}
+		catch (IOException e){
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
 		
-		try{File playerData = new File("playerData.txt"); if (playerData.createNewFile()) {} } catch (IOException e){System.out.println("An error occurred.");e.printStackTrace();}
+		try{File playerData = new File("playerData.txt");
+			if (playerData.createNewFile()) {}
+		}
+		catch (IOException e){
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
 		
 		LastTimePlayed lt = new LastTimePlayed();
 		lt.checkFirstTime();
@@ -35,7 +46,7 @@ public class Main {
 		Thread t1 = new Thread() // update info in display
 		{ 	
 			public void run()
-			{	
+			{
 				while(true)
 				{
 					if (p.getScore() > 7000000) break;
@@ -49,7 +60,7 @@ public class Main {
 		Thread t2 = new Thread() // increase score over time
 		{ 	
 			public void run()
-			{	
+			{
 				while(true)
 				{
 					if (p.getScore() > 7000000) break;
@@ -70,7 +81,7 @@ public class Main {
 		Thread t3 = new Thread() // animations of square
 		{ 	
 			public void run()
-			{	
+			{
 				while(true)
 				{
 					if (p.getScore() > 0 && p.getScore() <= 1000000)
@@ -114,7 +125,7 @@ public class Main {
 		Thread t4 = new Thread() // update info in files
 		{ 	
 			public void run()
-			{	
+			{
 				while(true)
 				{
 					if (g.b5Clicked >= 1)
@@ -133,7 +144,7 @@ public class Main {
 		Thread t5 = new Thread() // buttons
 				{ 	
 					public void run()
-					{	
+					{
 						while(true)
 						{
 							System.out.println(g.b1Clicked);

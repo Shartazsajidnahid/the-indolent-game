@@ -1,26 +1,35 @@
+import Button_builders.*;
+
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class GUI implements ActionListener
 {
 	private JFrame f;
-	private JButton b1, b2, b3, b4, b5;
+
 	private JLabel image;
 	private JLabel l1, l2, l3, l4, l5, l6, l7, l8;
+	private List<ButtonBuilder> buttonBuilders;
+	private List<JButton> buttons;
 
-	public GUI()
+	public GUI(List<ButtonBuilder> buttonBuilders)
 	{
+
 		f = new JFrame("The indolent game");
-		
-		b1 = new JButton();
-		b2 = new JButton();
-		b3 = new JButton();
-		b4 = new JButton();
-		b5 = new JButton();
+		this.buttons = new ArrayList<>();
+		this.buttonBuilders = buttonBuilders;
+//
+//		b1 = new JButton();
+//		b2 = new JButton();
+//		b3 = new JButton();
+//		b4 = new JButton();
+//		b5 = new JButton();
 		
 		image = new JLabel();
 		
@@ -30,43 +39,19 @@ public class GUI implements ActionListener
 		b4Clicked = 0;
 		b5Clicked = 0;
 	}
-	
-	public void buttonCreator ()
-	{
-		b1.setBounds(40, 300, 100, 40);
-		b1.setLayout(new BorderLayout());
-		b1.add(BorderLayout.NORTH,new JLabel("Click me"));
-		b1.add(BorderLayout.SOUTH,new JLabel("More score"));
-		f.add(b1);
-		
-		b2.setBounds(180, 300, 110, 40);
-		b2.setLayout(new BorderLayout());
-		b2.add(BorderLayout.NORTH,new JLabel("Upgrade"));
-		b2.add(BorderLayout.SOUTH,new JLabel("Time Interval"));
-		f.add(b2);
-		
-		b3.setBounds(330, 300, 180, 40);
-		b3.setLayout(new BorderLayout());
-		b3.add(BorderLayout.NORTH,new JLabel("Upgrade"));
-		b3.add(BorderLayout.SOUTH,new JLabel("Amount per Time Interval"));
-		f.add(b3);
-		
-		b4.setBounds(550, 300, 140, 40);
-		b4.setLayout(new BorderLayout());
-		b4.add(BorderLayout.NORTH,new JLabel("Upgrade"));
-		b4.add(BorderLayout.SOUTH,new JLabel("Amount per Click"));
-		f.add(b4);
-		
-		b5.setBounds(633, 0, 100, 40);
-		b5.setLayout(new BorderLayout());
-		b5.add(BorderLayout.NORTH,new JLabel("Quite"));
-		b5.add(BorderLayout.SOUTH,new JLabel("Save game"));
-		f.add(b5);
+	public void buttonCreator1(){
+		for (ButtonBuilder buttonBuilder : buttonBuilders) {
+			this.buttons.add(buttonBuilder.getButton());
+		}
+		for (JButton button : buttons){
+			f.add(button);
+		}
+
 	}
-	
+
 	public void displayImage()
 	{
-		ImageIcon picRed = new ImageIcon(this.getClass().getResource("IconFact/red.png"));
+		ImageIcon picRed = new ImageIcon(this.getClass().getResource("Iconfiles/red.png"));
 	    image.setIcon(picRed);
 	    image.setBounds(300, 111, 100, 100);
 	    f.add(image);
@@ -106,7 +91,7 @@ public class GUI implements ActionListener
 	public void guiCreator() 
 	{
 		try {
-		    f.setIconImage(ImageIO.read(getClass().getResourceAsStream("IconFact/icon.png")));
+		    f.setIconImage(ImageIO.read(getClass().getResourceAsStream("Iconfiles/icon.png")));
 		} catch (IOException e) {
 		    e.printStackTrace();
 		}
@@ -130,24 +115,12 @@ public class GUI implements ActionListener
 		l4.setText("Amount per Time Interval: " + num4);
 		l5.setText("Amount per Click: " + num5);
 	}
-	
 
-	public void buttonListenerCreator()
-	{	
-		b1.setActionCommand("b1");
-		b1.addActionListener(this);
-		
-		b2.setActionCommand("b2");
-		b2.addActionListener(this);
-		
-		b3.setActionCommand("b3");
-		b3.addActionListener(this);
-		
-		b4.setActionCommand("b4");
-		b4.addActionListener(this); 
-		
-		b5.setActionCommand("b5");
-		b5.addActionListener(this);
+	public void buttonListenerCreator1()
+	{
+		for (JButton button : buttons) {
+			button.addActionListener(this);
+		}
 	}
 	
 	public int b1Clicked, b2Clicked, b3Clicked, b4Clicked, b5Clicked;

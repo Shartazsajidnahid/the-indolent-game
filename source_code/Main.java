@@ -1,5 +1,10 @@
+import Button_builders.ButtonBuilder;
+
+
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 	private static File lastTimeData;
@@ -28,15 +33,21 @@ public class Main {
 		}
 	}
 
-
-
 	private static void setupGUI() {
-		gui = new GUI();
-		gui.buttonCreator();
+
+		List<ButtonBuilder> buttonBuilders = new ArrayList<>();
+		buttonBuilders.add(new ButtonBuilder.button1Builder());
+		buttonBuilders.add(new ButtonBuilder.button2Builder());
+		buttonBuilders.add(new ButtonBuilder.button3Builder());
+		buttonBuilders.add(new ButtonBuilder.button4Builder());
+		buttonBuilders.add(new ButtonBuilder.button5Builder());
+
+		gui = new GUI(buttonBuilders);
+		gui.buttonCreator1();
 		gui.displayImage();
 		gui.guiCreator();
 		gui.displayText();
-		gui.buttonListenerCreator();
+		gui.buttonListenerCreator1();
 	}
 
 	private static void setupPlayer() {

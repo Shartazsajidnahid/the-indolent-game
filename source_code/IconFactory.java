@@ -21,7 +21,7 @@ public class IconFactory {
 
         @Override
         public Icon createIcon() {
-            Icon redicon = new ImageIcon(getClass().getResource("IconFact/red.png"));
+            Icon redicon = new ImageIcon(getClass().getResource("Iconfiles/red.png"));
             return redicon;
         }
     }
@@ -30,7 +30,7 @@ public class IconFactory {
 
         @Override
         public Icon createIcon() {
-            Icon orange = new ImageIcon(getClass().getResource("IconFact/orange.png"));
+            Icon orange = new ImageIcon(getClass().getResource("Iconfiles/orange.png"));
             return orange;
         }
     }
@@ -39,7 +39,7 @@ public class IconFactory {
 
         @Override
         public Icon createIcon() {
-            Icon yellowicon = new ImageIcon(getClass().getResource("IconFact/yellow.png"));
+            Icon yellowicon = new ImageIcon(getClass().getResource("Iconfiles/yellow.png"));
             return yellowicon;
         }
     }
@@ -48,7 +48,7 @@ public class IconFactory {
 
         @Override
         public Icon createIcon() {
-            Icon orange = new ImageIcon(getClass().getResource("IconFact/blue.png"));
+            Icon orange = new ImageIcon(getClass().getResource("Iconfiles/blue.png"));
             return orange;
         }
     }
@@ -57,7 +57,7 @@ public class IconFactory {
 
         @Override
         public Icon createIcon() {
-            Icon orange = new ImageIcon(getClass().getResource("IconFact/green.png"));
+            Icon orange = new ImageIcon(getClass().getResource("Iconfiles/green.png"));
             return orange;
         }
     }
@@ -65,7 +65,7 @@ public class IconFactory {
 
         @Override
         public Icon createIcon() {
-            Icon orange = new ImageIcon(getClass().getResource("IconFact/indigo.png"));
+            Icon orange = new ImageIcon(getClass().getResource("Iconfiles/indigo.png"));
             return orange;
         }
     }
@@ -74,7 +74,7 @@ public class IconFactory {
 
         @Override
         public Icon createIcon() {
-            Icon orange = new ImageIcon(getClass().getResource("IconFact/violet.png"));
+            Icon orange = new ImageIcon(getClass().getResource("Iconfiles/violet.png"));
             return orange;
         }
     }
@@ -83,7 +83,7 @@ public class IconFactory {
 
         @Override
         public Icon createIcon() {
-            Icon whiteicon = new ImageIcon(getClass().getResource("IconFact/violet.png"));
+            Icon whiteicon = new ImageIcon(getClass().getResource("Iconfiles/violet.png"));
             return whiteicon;
         }
     }

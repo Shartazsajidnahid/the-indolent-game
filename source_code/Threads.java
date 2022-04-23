@@ -23,7 +23,7 @@ public class Threads {
                 System.out.println("thread1");
                 while(true)
                 {
-                    if (player.getScore() > 70) break;
+                    if (player.getScore() > 7000) break;
                     player.rate_up();
                     gui.changeText(player.getScore(), player.getRate(), player.getTimeInterval(), player.getAmountPerTimeInterval(), player.getAmountPerClick());
                 }
@@ -38,7 +38,7 @@ public class Threads {
                 while(true)
                 {
                     System.out.println("thread2");
-                    if (player.getScore() > 70) break;
+                    if (player.getScore() > 7000) break;
                     player.processPlayerData_A();
                     try
                     {
@@ -84,7 +84,7 @@ public class Threads {
                     lastTimePlayed.getSystemTime();
                     lastTimePlayed.archiveData();
                     player.archivePlayerData();
-                    if (player.getScore() > 700) break;
+                    if (player.getScore() > 7000) break;
                 }
             }
         };

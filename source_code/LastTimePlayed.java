@@ -12,23 +12,28 @@ import java.util.Calendar;
 
 public class LastTimePlayed
 {
-	private int year1, month1, day1, hour1, minute1, second1;
-	private int year2, month2, day2, hour2, minute2, second2;
+	private Time time1;
+	private Time time2;
 	private long yearDiff, monthDiff, dayDiff, hourDiff, minuteDiff, secondDiff;
 
 	private int firstTime;
 	// firstTime = 0 -> This is the first time user plays the indolent game
 
+	public LastTimePlayed(){
+		this.time1 = new Time();
+		this.time2 = new Time();
+	}
+
 	public void getSystemTime()
 	{
 		Calendar cal = Calendar.getInstance();
 		//Date date = cal.getTime();
-		year2 = cal.get(Calendar.YEAR);
-		month2 = cal.get(Calendar.MONTH) + 1;
-		day2 = cal.get(Calendar.DAY_OF_MONTH);
-		hour2 = cal.get(Calendar.HOUR_OF_DAY);
-		minute2 = cal.get(Calendar.MINUTE);
-		second2 = cal.get(Calendar.SECOND);
+		time2.setYear(cal.get(Calendar.YEAR));
+		time2.setMonth(cal.get(Calendar.MONTH) + 1);
+		time2.setDay(cal.get(Calendar.DAY_OF_MONTH));
+		time2.setHour(cal.get(Calendar.HOUR_OF_DAY));
+		time2.setMinute(cal.get(Calendar.MINUTE));
+		time2.setSecond(cal.get(Calendar.SECOND));
 	}
 
 	public void checkFirstTime()
@@ -58,7 +63,7 @@ public class LastTimePlayed
 		try
 		{
 			FileWriter lastTimeData = new FileWriter("lastTimeData.txt");
-			lastTimeData.write(year2 + " " + month2 + " " + day2 + " " + hour2 + " " + minute2 + " " + second2);
+			lastTimeData.write(time2.toString());
 			lastTimeData.close();
 			
       	}
@@ -77,12 +82,12 @@ public class LastTimePlayed
 			{
 				File lastTimeData = new File("lastTimeData.txt");
 				Scanner reader = new Scanner(lastTimeData);
-				year1 = reader.nextInt();
-				month1 = reader.nextInt();
-				day1 = reader.nextInt();
-				hour1 = reader.nextInt();
-				minute1 = reader.nextInt();
-				second1 = reader.nextInt();
+				time1.setYear(reader.nextInt());
+				time1.setMonth(reader.nextInt());
+				time1.setDay(reader.nextInt());
+				time1.setHour(reader.nextInt());
+				time1.setMinute(reader.nextInt());
+				time1.setSecond(reader.nextInt());
 				reader.close();
 			}
 			catch (FileNotFoundException e)
@@ -101,8 +106,8 @@ public class LastTimePlayed
 	{
 		if (firstTime == 1)
 		{
-			LocalDateTime fromDateTime = LocalDateTime.of(year1, month1, day1, hour1, minute1, second1);
-			LocalDateTime toDateTime = LocalDateTime.of(year2, month2, day2, hour2, minute2, second2);
+			LocalDateTime fromDateTime = LocalDateTime.of(time1.getYear(), time1.getMonth(), time1.getDay(), time1.getHour(), time1.getMinute(), time1.getSecond());
+			LocalDateTime toDateTime = LocalDateTime.of(time2.getYear(), time2.getMonth(), time2.getDay(), time2.getHour(), time2.getMinute(), time2.getSecond());
 			LocalDateTime tempDateTime = LocalDateTime.from(fromDateTime);
 			calculateDiffernce(tempDateTime,toDateTime);
 			tempDateTime = calctempDateTime(tempDateTime);

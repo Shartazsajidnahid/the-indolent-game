@@ -1,6 +1,5 @@
 import Button_builders.*;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -29,7 +28,9 @@ public class GUI implements ActionListener
 	}
 	public void buttonCreator1(){
 		for (ButtonBuilder buttonBuilder : buttonBuilders) {
-			this.buttons.add(buttonBuilder.getButton());
+			ButtonEngineer buttonEngineer = new ButtonEngineer(buttonBuilder);
+			buttonEngineer.constructButton();
+			this.buttons.add(buttonEngineer.getButton());
 		}
 		for (JButton button : buttons){
 			f.add(button);
@@ -99,13 +100,13 @@ public class GUI implements ActionListener
 		image.setIcon(newicon);
 	}
 
-	public void changeText(double num1, double num2, double num3, double num4, double num5)
+	public void changeText(Player player)
 	{
-		l1.setText("Score: " + String.format("%.03f", num1));
-		l2.setText("Rate: " + num2);
-		l3.setText("Time Interval: " + num3);
-		l4.setText("Amount per Time Interval: " + num4);
-		l5.setText("Amount per Click: " + num5);
+		l1.setText("Score: " + String.format("%.03f", player.getScore()));
+		l2.setText("Rate: " + player.getRate());
+		l3.setText("Time Interval: " + player.getTimeInterval());
+		l4.setText("Amount per Time Interval: " + player.getAmountPerTimeInterval());
+		l5.setText("Amount per Click: " + player.getAmountPerClick());
 	}
 
 	public void buttonListenerCreator1()
@@ -147,6 +148,7 @@ public class GUI implements ActionListener
 			b5Clicked = 1;
 		}
 	}
+
 	public int getB2Clicked() {
 	return b2Clicked;
 	}

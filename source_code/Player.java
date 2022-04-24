@@ -115,7 +115,7 @@ public class Player
 
 	public void lvl_APC_up()
 	{
-		if(checkUpCond(lvl_TI)){
+		if(checkUpCond(lvl_APC)){
 			lvl_APC++;
 			amountPerClick = amountPerClick * 10;
 			score -= 1000;

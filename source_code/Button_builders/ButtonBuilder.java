@@ -15,7 +15,7 @@ public interface ButtonBuilder {
     public void addSouth();
 
     public void setActionCommand();
-
+    public void buildButton();
     public JButton getButton();
 
 
@@ -49,7 +49,7 @@ public interface ButtonBuilder {
         }
 
         @Override
-        public JButton getButton() {
+        public void buildButton() {
             this.newbutton = new JButton();
             this.newBorderlayout = new BorderLayout();
             setbounds();
@@ -57,6 +57,10 @@ public interface ButtonBuilder {
             addNorth();
             addSouth();
             setActionCommand();
+        }
+
+        @Override
+        public JButton getButton() {
             return this.newbutton;
         }
     }
@@ -91,7 +95,7 @@ public interface ButtonBuilder {
         }
 
         @Override
-        public JButton getButton() {
+        public void buildButton() {
             this.newbutton = new JButton();
             this.newBorderlayout = new BorderLayout();
             setbounds();
@@ -99,6 +103,10 @@ public interface ButtonBuilder {
             addNorth();
             addSouth();
             setActionCommand();
+        }
+
+        @Override
+        public JButton getButton() {
             return this.newbutton;
         }
     }
@@ -132,7 +140,7 @@ public interface ButtonBuilder {
         }
 
         @Override
-        public JButton getButton() {
+        public void buildButton() {
             this.newbutton = new JButton();
             this.newBorderlayout = new BorderLayout();
             setbounds();
@@ -140,6 +148,10 @@ public interface ButtonBuilder {
             addNorth();
             addSouth();
             setActionCommand();
+        }
+
+        @Override
+        public JButton getButton() {
             return this.newbutton;
         }
     }
@@ -173,7 +185,7 @@ public interface ButtonBuilder {
         }
 
         @Override
-        public JButton getButton() {
+        public void buildButton() {
             this.newbutton = new JButton();
             this.newBorderlayout = new BorderLayout();
             setbounds();
@@ -181,6 +193,10 @@ public interface ButtonBuilder {
             addNorth();
             addSouth();
             setActionCommand();
+        }
+
+        @Override
+        public JButton getButton() {
             return this.newbutton;
         }
     }
@@ -214,7 +230,7 @@ public interface ButtonBuilder {
         }
 
         @Override
-        public JButton getButton() {
+        public void buildButton() {
             this.newbutton = new JButton();
             this.newBorderlayout = new BorderLayout();
             setbounds();
@@ -222,6 +238,10 @@ public interface ButtonBuilder {
             addNorth();
             addSouth();
             setActionCommand();
+        }
+
+        @Override
+        public JButton getButton() {
             return this.newbutton;
         }
     }

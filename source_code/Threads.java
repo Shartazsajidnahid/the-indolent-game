@@ -25,7 +25,7 @@ public class Threads {
                 {
                     if (player.getScore() > 7000) break;
                     player.rate_up();
-                    gui.changeText(player.getScore(), player.getRate(), player.getTimeInterval(), player.getAmountPerTimeInterval(), player.getAmountPerClick());
+                    gui.changeText(player);
                 }
             }
         };
@@ -97,11 +97,6 @@ public class Threads {
                 System.out.println("thread5");
                 while(true)
                 {
-                    System.out.println(gui.getB1Clicked());
-                    System.out.println(gui.getB2Clicked());
-                    System.out.println(gui.getB3Clicked());
-                    System.out.println(gui.getB4Clicked());
-                    System.out.println(gui.getB5Clicked());
                     if (gui.getB1Clicked() >= 1)
                     {
                         player.processPlayerData_C();
